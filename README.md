@@ -6,8 +6,8 @@ ELBOOK2022/src/main/resources/application.properties
 ```
 server.port=8043　 #ポート番号の指定
 spring.datasource.url=jdbc:mysql://localhost/ELBOOK2022　　#DB名　下記のSQLを使用する場合変更なし
-spring.datasource.username=root　　　　        #ローカル環境のDBの名前
-spring.datasource.password=hasegawa123   #ローカル環境のDBのパスワード
+spring.datasource.username=　　　　        #ローカル環境のDBの名前
+spring.datasource.password=   #ローカル環境のDBのパスワード
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 
