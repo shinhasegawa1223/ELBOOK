@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Mapper.BookMapper">
+
+	<resultMap id="Base_Result_Map"
+		type="com.example.demo.Entity.BookList">
+		<id column="book_id" property="book_id" jdbcType="INTEGER" />
+	</resultMap>
+
+	<!-- *あとで編集 -->
+	<select id="findBook" resultMap="Base_Result_Map">
+		SELECT * FROM EL_BOOK
+	</select>
+
+	<!-- *あとで編集 -->
+	<select id="targetBook" resultMap="Base_Result_Map"
+		parameterType="com.example.demo.Entity.BookList">
+		SELECT * FROM EL_BOOK WHERE book_id =#{book_id};
+	</select>
+
+	<insert id="createBook"
+		parameterType="com.example.demo.Entity.BookList">
+		INSERT INTO EL_BOOK(book_name, book_author, book_publisher, book_releasetime, create_time)
+		VALUES(#{book_name}, #{book_author}, #{book_publisher}, #{book_releasetime}, now());
+	</insert>
+
+	<update id="editBook"
+		parameterType="com.example.demo.Entity.BookList">
+		UPDATE EL_BOOK SET book_name =#{book_name}, book_author=#{book_author}, book_publisher=#{book_publisher}, book_releasetime=#{book_releasetime}, update_time =now()
+		WHERE book_id =#{book_id};
+	</update>
+
+	<delete id="deleteBook"
+		parameterType="com.example.demo.Entity.BookList">
+		DELETE FROM EL_BOOK
+		WHERE book_id =#{book_id};
+	</delete>
+</mapper>
