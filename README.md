@@ -17,7 +17,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 --DBが存在しない場合は、作成をする
 CREATE DATABASE ELBOOK2022 ;
 
-
+USE ELBOOK2022;
 
 /* 下記テーブル作成文 */ 
 
