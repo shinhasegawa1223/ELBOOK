@@ -40,6 +40,8 @@ CREATE  TABLE EL_USER  (
 ,book_releasetime date
 ,create_time timestamp
 ,update_time datetime
+,file_name varchar(200) DEFAULT NULL
+,stock int
 ) ;
 
 

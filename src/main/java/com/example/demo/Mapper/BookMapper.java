@@ -21,4 +21,6 @@ public interface BookMapper {
 
 	void deleteBook(int book_id);
 
+	int getMaxNumberBook();
+
 }

@@ -31,5 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### etc ###
 .DS_Store
 application.properties
+/.apt_generated_tests/
+/src/main/resources/static/images/calligraphy/*
+!/src/main/resources/static/images/calligraphy/picture.jpg
+!/src/main/resources/static/images/calligraphy/picture2.jpg
