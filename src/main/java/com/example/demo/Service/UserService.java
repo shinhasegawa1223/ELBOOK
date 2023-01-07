@@ -21,14 +21,12 @@ public class UserService {
 	private final PasswordEncoder passwordEncoder;
 
 	public List<UserList> findUser() {
-
 		return userMapper.findUser();
 	}
 
 	public UserList targetUser(int user_id) {
 		return userMapper.targetUser(user_id);
 	}
-	
 
 	public void createUser(UserList userList) {
 		String encodedpass = passwordEncoder.encode(userList.getPass());

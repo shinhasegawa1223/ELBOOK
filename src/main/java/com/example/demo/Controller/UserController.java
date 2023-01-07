@@ -26,7 +26,6 @@ public class UserController {
 
 	@GetMapping("/list")
 	public String findUser(Model model) {
-		//var x = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		model.addAttribute("UserList", userService.findUser());
 		return "userlist";
 	}

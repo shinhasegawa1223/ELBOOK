@@ -7,14 +7,12 @@ import com.example.demo.Mapper.RentalMapper;
 
 @Service
 public class RentalService {
-	
+
 	@Autowired
 	RentalMapper rentalMapper;
 
 	public void rental(int book_id) {
-		
 		rentalMapper.rental(book_id);
 	}
-	
 
 }

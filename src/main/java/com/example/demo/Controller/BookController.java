@@ -32,7 +32,6 @@ public class BookController {
 	public String findBook(@AuthenticationPrincipal CustomUserDetails user_role, Model model) {
 		model.addAttribute("BookList", bookService.findBook());
 		//System.out.println(user_role);
-
 		return "booklist";
 	}
 

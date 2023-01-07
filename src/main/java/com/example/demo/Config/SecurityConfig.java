@@ -13,23 +13,19 @@ import lombok.RequiredArgsConstructor;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	private final UserDetailsService userDetailsService;
 	private final PasswordEncoder passwordEncoder;
-	
-	
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers(
-                            "/images/**",
-                            "/css/**",
-                            "/javascript/**"
-                            );
-    }
-	
+
 	@Override
-	protected void configure(HttpSecurity http) throws Exception{
-		
+	public void configure(WebSecurity web) throws Exception {
+		web
+				.ignoring()
+				.antMatchers("/images/**", "/css/**", "/js/**");
+	}
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
 		http
 				.authorizeRequests()
 				.mvcMatchers("/login/**").permitAll()
@@ -37,14 +33,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.formLogin()
 				.loginPage("/login");
-		
 	}
-	
-	
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService)
-			.passwordEncoder(passwordEncoder);
+		auth
+				.userDetailsService(userDetailsService)
+				.passwordEncoder(passwordEncoder);
 	}
 
 }

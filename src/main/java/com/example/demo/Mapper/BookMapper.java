@@ -11,8 +11,6 @@ public interface BookMapper {
 
 	List<BookList> findBook();
 
-	//List<BookList> targetBook(int book_id);
-
 	BookList targetBook(int book_id);
 
 	void createBook(BookList bookList);
