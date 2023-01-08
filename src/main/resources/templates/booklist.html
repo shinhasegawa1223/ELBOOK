@@ -57,26 +57,22 @@
 -->
 
 
-       <div class="card">
-          <img class="card-img-top" src="">
+<body>
+  <div class="container">
+    <div class="row">
+     <div th:each="book: ${BookList}" class="col-4 my-4">
+        <a th:href="@{/book/details/{book_id}(book_id=*{book.book_id})}" class="card text-decoration-none">
+          <img class="card-img-top" width="100%" height="250" src="https://placehold.jp/150x150.png">
           <div class="card-body">
-            <h4 class="card-title">タイトル</h4>
-            <h6 class="card-subtitle">副見出し</h6>
-            <p class="card-text">カードの本文カードの本文カードの本文カードの本文カードの本文カードの本文カードの本文</p>
-            <a href="#" class="btn btn-dark">read more</a>
+            <h4 th:text="${book.book_name}" class="card-title text-dark">タイトル</h4>
+            <h6 th:text="${book.book_author}" class="card-subtitle text-dark">著者</h6>
+            <p th:text="${book.book_publisher}"class="card-text text-dark">出版社</p>
           </div>
-        </div>
-         <div class="card">
-         <div class="card-header">ヘッダー</div>//ヘッダー
-          <img class="card-img-top" src="img/1.png">
-          <div class="card-body">
-            <h4 class="card-title">タイトル</h4>
-            <h6 class="card-subtitle">副見出し</h6>
-            <p class="card-text">カードの本文カードの本文カードの本文カードの本文カードの本文カードの本文カードの本文</p>
-            <a href="#" class="btn btn-dark">read more</a>
-          </div>
-          <div class="card-footer">フッター</div>//フッター
-        </div>
+        </a>
+      </div>
+      </div>
+    </div>
+</body>
         
 </body>
 
