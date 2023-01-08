@@ -14,34 +14,45 @@
 
 	<header th:replace="header :: header"></header>
 	<br>
-	<h2 class="container">Book_Create</h2>
-	<form th:action="@{/book/bookcreate}" th:object="${createBook}" class="container" method="post"
-		enctype="multipart/form-data">
-		<div class="mb-2">
-			<label class="form-label" for="name">Name</label>
-			<input class="form-control" type="text" name="book_name" placeholder="キングダム(66)" id="name">
-		</div>
-		<div class="mb-2">
-			<label class="form-label" for="author">Author</label>
-			<input class="form-control" type="text" name="book_author" placeholder="原泰久" id="author">
-		</div>
-		<div class="mb-2">
-			<label class="form-label" for="publisher">Publisher</label>
-			<input class="form-control" type="text" name="book_publisher" placeholder="集英社" id="publisher">
-		</div>
-		<div class="mb-2">
-			<label class="form-label" for="releasetime">ReleaseDate</label>
-			<input class="form-control" type="text" name="book_releasetime" placeholder="YYYY-MM-DD" id="releasetime">
-		</div>
-		<div class="mb-2">
-			<label class="form-label" for="releasetime">Calligraphy</label>
-			<input class="form-control" type="file" name="file" onchange="previewFile(this);" accept="image/jpeg"
-				required>
-			<img id="preview" src="https://placehold.jp/300x300.png" alt="代替テキスト">
-		</div>
+	<div class="container">
+		<div class="row">
+			<div class="container col-md-6">
+				<h2>Book_Create</h2>
+				<form th:action="@{/book/bookcreate}" th:object="${createBook}" method="post"
+					enctype="multipart/form-data">
+					<div class="mb-2">
+						<label class="form-label" for="name">Name</label>
+						<input class="form-control" type="text" name="book_name" placeholder="キングダム(66)" id="name">
+					</div>
+					<div class="mb-2">
+						<label class="form-label" for="author">Author</label>
+						<input class="form-control" type="text" name="book_author" placeholder="原泰久" id="author">
+					</div>
+					<div class="mb-2">
+						<label class="form-label" for="publisher">Publisher</label>
+						<input class="form-control" type="text" name="book_publisher" placeholder="集英社" id="publisher">
+					</div>
+					<div class="mb-2">
+						<label class="form-label" for="releasetime">ReleaseDate</label>
+						<input class="form-control" type="text" name="book_releasetime" placeholder="YYYY-MM-DD"
+							id="releasetime">
+					</div>
+					<div class="mb-2">
+						<label class="form-label" for="releasetime">Calligraphy</label>
+						<input class="form-control" type="file" name="file" onchange="previewFile(this);"
+							accept="image/jpeg" required>
+					</div>
 
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+			<div class="container col-md-6">
+				<img class="col-md-12 img-fluid" style="object-fit: contain; max-height:600px;" id="preview"
+					src="https://placehold.jp/100x100.png" alt="代替テキスト">
+			</div>
+
+		</div>
+	</div>
 
 </body>
 

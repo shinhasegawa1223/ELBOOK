@@ -35,6 +35,6 @@ build/
 ### etc ###
 .DS_Store
 application.properties
-
 /.apt_generated_tests/
-
+/src/main/resources/static/images/calligraphy/*
+/bin/

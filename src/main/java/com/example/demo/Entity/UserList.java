@@ -1,5 +1,6 @@
 package com.example.demo.Entity;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.validation.constraints.NotBlank;
@@ -8,7 +9,7 @@ import javax.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class UserList {
+public class UserList implements Serializable {
 
 	private int user_id;
 
