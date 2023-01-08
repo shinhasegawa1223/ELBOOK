@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.Service.BookService;
-import com.example.demo.Service.auth.CustomUserDetails;
+import com.example.demo.Service.auth.CustomDetails;
 
 @Controller
 public class IndexController {
@@ -15,7 +15,7 @@ public class IndexController {
 	BookService bookService;
 
 	@GetMapping
-	public String index(@AuthenticationPrincipal CustomUserDetails user_role, Model model) {
+	public String index(@AuthenticationPrincipal CustomDetails user_role, Model model) {
 		model.addAttribute("BookList", bookService.findBook());
 		return "booklist";
 	}

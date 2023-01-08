@@ -21,7 +21,6 @@ public class UserService {
 	private final PasswordEncoder passwordEncoder;
 
 	public List<UserList> findUser() {
-
 		return userMapper.findUser();
 	}
 
@@ -29,7 +28,6 @@ public class UserService {
 		return userMapper.targetUser(user_id);
 	}
 	
-
 	public void createUser(UserList userList) {
 		String pass = passwordEncoder.encode(userList.getPass());
 		userList.setPass(pass);
