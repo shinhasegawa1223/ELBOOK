@@ -25,8 +25,8 @@
 
 	<insert id="createUser"
 		parameterType="com.example.demo.Entity.UserList">
-		INSERT INTO EL_USER(user_name, mail, pass, create_time)
-		VALUES(#{user_name}, #{mail}, #{pass}, now());
+		INSERT INTO EL_USER(user_name, mail, pass, create_time, authority)
+		VALUES(#{user_name}, #{mail}, #{pass}, now(), #{authority});
 	</insert>
 
 	<update id="editUser"

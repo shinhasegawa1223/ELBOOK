@@ -20,23 +20,34 @@
 	<form th:each="book: ${TargetBook}" th:action="@{/book/bookedit}" th:object="${editBook}" method="post">
 
 		<div class="form-group ">
-			<label for="text1">Name:</label> <input th:placeholder="${book.book_name}" type="text" name="book_name"
-				th:value="${book.book_name}" id="text1" class="form-control">
+			<label for="text1">Name:</label>
+			<input th:placeholder="${book.book_name}" type="text" name="book_name" th:value="${book.book_name}"
+				id="text1" class="form-control">
 		</div>
 		<br>
 		<div class="form-group ">
-			<label for="text1">Author:</label> <input th:placeholder="${book.book_author}" type="text"
-				name="book_author" th:value="${book.book_author}" id="text1" class="form-control">
+			<label for="text1">Author:</label>
+			<input th:placeholder="${book.book_author}" type="text" name="book_author" th:value="${book.book_author}"
+				id="text1" class="form-control">
 		</div>
 		<br>
 		<div class="form-group ">
-			<label for="text1">Publisher:</label> <input th:placeholder="${book.book_publisher}" type="text"
-				name="book_publisher" th:value="${book.book_publisher}" id="text1" class="form-control ">
+			<label for="text1">Publisher:</label>
+			<input th:placeholder="${book.book_publisher}" type="text" name="book_publisher"
+				th:value="${book.book_publisher}" id="text1" class="form-control ">
 		</div>
 		<br>
 		<div class="form-group ">
-			<label for="text1">ReleaseDate:</label> <input th:placeholder="${book.book_releasetime}" type="text"
-				name="book_releasetime" th:value="${book.book_releasetime}" id="text1" class="form-control ">
+			<label for="text1">ReleaseDate:</label>
+			<input th:placeholder="${book.book_releasetime}" type="text" name="book_releasetime"
+				th:value="${book.book_releasetime}" id="text1" class="form-control ">
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="text1">Calligraphy</label>
+			<input th:placeholder="${book.file_name}" type="text" name="file_name"
+				th:value="${book.file_name}" id="text1" class="form-control ">
+			<!-- 画像を保存する処理も入れる -->
 		</div>
 		<br>
 		<br> <br>

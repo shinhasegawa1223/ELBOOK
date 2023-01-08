@@ -34,4 +34,8 @@ public class BookService {
 		bookMapper.deleteBook(book_id);
 	}
 
+	public int getMaxNumberBook() {
+		return bookMapper.getMaxNumberBook();
+	}
+
 }

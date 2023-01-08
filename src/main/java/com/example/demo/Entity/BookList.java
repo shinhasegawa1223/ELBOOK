@@ -2,6 +2,8 @@ package com.example.demo.Entity;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -20,5 +22,11 @@ public class BookList {
 	private Date create_time;
 
 	private Date update_time;
+	
+	//ファイルアップロードのため必要
+	private MultipartFile file;
+	
+	private String file_name;
+	private int stock;
 
 }
