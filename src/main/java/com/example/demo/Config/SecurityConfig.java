@@ -29,10 +29,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 				.authorizeRequests()
 				.mvcMatchers("/login/**").permitAll()
+				.and()
+				.authorizeRequests().mvcMatchers("/user/**").hasAuthority("ADMIN")
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()
 				.loginPage("/login");
+	
+		http.exceptionHandling().accessDeniedPage("/error");
+		
+
 	}
 
 	@Override

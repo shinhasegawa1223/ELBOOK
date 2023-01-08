@@ -33,4 +33,5 @@ build/
 .vscode/
 .DS_Store
 application.properties
-/src/
+
+/doc/

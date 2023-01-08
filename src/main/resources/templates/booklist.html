@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec= "http://www.thymeleaf.org/extras/spring-security5">
 
 <head>
 	<meta charset="UTF-8">
@@ -13,7 +13,7 @@
 <body>
 	
 	<header th:replace="header :: header"></header>
-	<table class="table">
+<!--	<table class="table">
 		<thead class="table-dark">
 			<tr>
 				<th scope="col">Name</th>
@@ -33,25 +33,51 @@
 				<td th:text="${book.book_publisher}"></td>
 				<td th:text="${book.book_releasetime}"></td>
 				<td th:text="${book.create_time}"></td>
-
+-->				
 				<!-- Rental -->
-				<td>
+<!--				<td>
 					<a th:href="@{/book/details/{book_id}(book_id=*{book.book_id})}"
 						class="btn btn-secondary">Details</a>
 				</td>
+-->
 				<!-- Edit -->
-				<td>
-					<a th:href="@{/book/editview/{book_id}(book_id=*{book.book_id})}" class="btn btn-primary">Edit</a>
+<!--				<td>
+					<a th:href="@{/book/editview/{book_id}(book_id=*{book.book_id})}"
+					class="btn btn-primary" sec:authorize="hasAuthority('ADMIN')">Edit</a>
 				</td>
+-->
 				<!-- Delete -->
-				<td>
+<!--				<td>
 					<a th:href="@{/book/bookdelete/{book_id}(book_id=*{book.book_id})}"
-						class="btn btn-danger">Delete</a>
+						class="btn btn-danger" sec:authorize="hasAuthority('ADMIN')">Delete</a>
 				</td>
-				<!--  -->
 			</tr>
 		</tbody>
-	</table>
+	</table> 
+-->
+
+
+       <div class="card">
+          <img class="card-img-top" src="">
+          <div class="card-body">
+            <h4 class="card-title">タイトル</h4>
+            <h6 class="card-subtitle">副見出し</h6>
+            <p class="card-text">カードの本文カードの本文カードの本文カードの本文カードの本文カードの本文カードの本文</p>
+            <a href="#" class="btn btn-dark">read more</a>
+          </div>
+        </div>
+         <div class="card">
+         <div class="card-header">ヘッダー</div>//ヘッダー
+          <img class="card-img-top" src="img/1.png">
+          <div class="card-body">
+            <h4 class="card-title">タイトル</h4>
+            <h6 class="card-subtitle">副見出し</h6>
+            <p class="card-text">カードの本文カードの本文カードの本文カードの本文カードの本文カードの本文カードの本文</p>
+            <a href="#" class="btn btn-dark">read more</a>
+          </div>
+          <div class="card-footer">フッター</div>//フッター
+        </div>
+        
 </body>
 
 </html>
