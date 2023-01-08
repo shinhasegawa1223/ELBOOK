@@ -27,16 +27,16 @@ public class UserService {
 	public UserList targetUser(int user_id) {
 		return userMapper.targetUser(user_id);
 	}
-	
+
 	public void createUser(UserList userList) {
-		String pass = passwordEncoder.encode(userList.getPass());
-		userList.setPass(pass);
+		String encodedpass = passwordEncoder.encode(userList.getPass());
+		userList.setPass(encodedpass);
 		userMapper.createUser(userList);
 	}
 
 	public void editUser(UserList userList) {
-		String pass = passwordEncoder.encode(userList.getPass());
-		userList.setPass(pass);
+		String encodedpass = passwordEncoder.encode(userList.getPass());
+		userList.setPass(encodedpass);
 		userMapper.editUser(userList);
 	}
 

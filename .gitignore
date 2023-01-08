@@ -31,6 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### etc ###
 .DS_Store
 application.properties
+
 /.apt_generated_tests/
+

@@ -11,8 +11,6 @@ public interface BookMapper {
 
 	List<BookList> findBook();
 
-	//List<BookList> targetBook(int book_id);
-
 	BookList targetBook(int book_id);
 
 	void createBook(BookList bookList);
@@ -20,5 +18,7 @@ public interface BookMapper {
 	void editBook(BookList bookList);
 
 	void deleteBook(int book_id);
+
+	int getMaxNumberBook();
 
 }
