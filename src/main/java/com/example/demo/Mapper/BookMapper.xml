@@ -8,13 +8,13 @@
 
 	<!-- stock file_name　追記処理必要 -->
 	<select id="findBook" resultMap="Base_Result_Map">
-		SELECT book_id, book_name, book_author,  book_publisher, create_time, update_time
+		SELECT book_id, book_name, book_author,  book_publisher, create_time, update_time, file_name, stock
 		FROM EL_BOOK
 	</select>
 
 	<!-- stock file_name　追記処理必要-->
 	<select id="targetBook" resultMap="Base_Result_Map" parameterType="com.example.demo.Entity.BookList">
-		SELECT book_id, book_name, book_author,  book_publisher, create_time, update_time
+		SELECT book_id, book_name, book_author,  book_publisher, create_time, update_time, file_name, stock
 		FROM EL_BOOK WHERE book_id =#{book_id};
 	</select>
 	
