@@ -15,5 +15,5 @@ public interface RentalMapper {
 	void returnBook(int rental_key_id, int book_id);
 
 	List<Rental> findRentalBook(int rental_key_id);
-
+	
 }

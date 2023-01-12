@@ -35,7 +35,7 @@ public class ELBOOKBookTest {
 	@Test
 	@Disabled
 	void targetBookTest() {
-	//	BookList lists = bookService.targetBook(10);
+		//	BookList lists = bookService.targetBook(10);
 
 	}
 
@@ -54,7 +54,7 @@ public class ELBOOKBookTest {
 	}
 
 	@Test
-	//@Disabled
+	@Disabled
 	void editBook() {
 		BookList bookList = new BookList();
 		bookList.setBook_id(14);
@@ -68,9 +68,33 @@ public class ELBOOKBookTest {
 	}
 
 	@Test
-	//@Disabled
+	@Disabled
 	void deleteBook() {
 		bookService.deleteBook(11);
 	}
 
+	@Test
+	//@Disabled
+	void rentalreturnBook() {
+		int book_id = 1;
+		BookList lists = bookService.targetBook(book_id);
+		System.out.println("在庫数" + lists.getStock());
+
+		bookService.rentalBook(book_id);
+		BookList rentald_lists = bookService.targetBook(book_id);
+		System.out.println("貸し出し処理在庫数" + rentald_lists.getStock());
+		
+		System.out.println(lists.getStock() - 1);
+
+		assertEquals(lists.getStock() - 1, rentald_lists.getStock());
+		System.out.println("-----------------------------------");
+
+		bookService.returnBook(book_id);
+		BookList returnd_lists = bookService.targetBook(book_id);
+		System.out.println("返却処理在庫数" + returnd_lists.getStock());
+
+		assertEquals(lists.getStock(), returnd_lists.getStock());
+		System.out.println("-----------------------------------");
+
+	}
 }
