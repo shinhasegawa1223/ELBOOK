@@ -14,8 +14,8 @@ public class RentalService {
 	@Autowired
 	RentalMapper rentalMapper;
 
-	public void rentalBook(int book_id) {
-		rentalMapper.rentalBook(book_id);
+	public void rentalBook(int rental_key_id, int book_id) {
+		rentalMapper.rentalBook(rental_key_id,book_id);
 	}
 
 	public void returnBook(int rental_key_id, int book_id) {
