@@ -30,6 +30,13 @@ public class BookController {
 
 	@Autowired
 	private AppConfig appConfig;
+	
+	
+	@GetMapping("/bookinfo")
+	public String bookInfo(Model model) {
+		model.addAttribute("BookList", bookService.findBook());
+		return "bookinfo";
+	}
 
 	//アクセス時にユーザーを一覧で取得
 	@GetMapping("/list")
