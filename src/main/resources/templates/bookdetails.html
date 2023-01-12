@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
 	<header th:replace="header :: header"></header>
 	<br>
 	<div class="container">
@@ -19,6 +20,7 @@
 				<h2>Book_Details</h2>
 				<form th:each="book:${TargetBook}" th:action="@{/rental/{book_id}(book_id=*{book.book_id})}"
 					method="post">
+
 
 					<div class="form-group ">
 						<label for="text1">Name:</label>

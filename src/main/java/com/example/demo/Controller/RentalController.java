@@ -20,29 +20,39 @@ public class RentalController {
 	RentalService rentalService;
 
 	@GetMapping("/rentalview")
+
+
 	public String moveRentalView(
-			@AuthenticationPrincipal CustomDetails user_role,
+			@AuthenticationPrincipal CustomDetails user_info,
 			Model model) {
 
-		int rental_key_id = user_role.getUserList().getUser_id();
+		int rental_key_id = user_info.getUserList().getUser_id();
 		model.addAttribute("RentalBooks", rentalService.findRentalBook(rental_key_id));
 		return "rental";
 	}
 
 	@PostMapping("/{book_id}")
-	public String rentalBook(@PathVariable int book_id) {
-		rentalService.rentalBook(book_id);
+
+	public String rentalBook(
+			@AuthenticationPrincipal CustomDetails user_info,
+			@PathVariable int book_id) {
+
+		int rental_key_id = user_info.getUserList().getUser_id();
+
+		rentalService.rentalBook(rental_key_id, book_id);
 		return "redirect:/book/list";
 	}
 
 	@GetMapping("/return/{book_id}")
 	public String returnBook(
-			@AuthenticationPrincipal CustomDetails user_role,
+
+			@AuthenticationPrincipal CustomDetails user_info,
 			@PathVariable int book_id) {
 
-		int rental_key_id = user_role.getUserList().getUser_id();
-		//System.out.println(book_id);
+		int rental_key_id = user_info.getUserList().getUser_id();
+
 		rentalService.returnBook(rental_key_id, book_id);
+
 		return "redirect:/rental/rentalview";
 	}
 
