@@ -8,6 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.demo.Entity.UserList;
 
+import lombok.Data;
+
+@Data
 public class CustomDetails implements UserDetails {
 	
 	private UserList userList;

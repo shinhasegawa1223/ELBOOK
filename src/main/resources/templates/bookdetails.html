@@ -18,7 +18,7 @@
 <br>
 <div class="form-box container">
 	<!-- class="form-box container" -->
-	<form th:each="book:${TargetBook}" th:action="@{/book/rental/{book_id}(book_id=*{book.book_id})}" method="post">
+	<form th:each="book:${TargetBook}" th:action="@{/rental/{book_id}(book_id=*{book.book_id})}" method="post">
 
 		<div class="form-group ">
 			<label for="text1">Name:</label> <input th:placeholder="${book.book_name}" type="text" name="book_name"
