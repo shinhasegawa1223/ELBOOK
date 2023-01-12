@@ -22,7 +22,7 @@ public class ApplicationConfig {
 //		}
 		AppConfig appConfig = new AppConfig();
 		appConfig.setImageDir(imageDir);
-		System.out.println(imageDir);
+//		System.out.println(imageDir);
 		return appConfig;
 	}
 }

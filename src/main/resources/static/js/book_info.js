@@ -1,15 +1,18 @@
 /*
- 画像プレビュー
+ **
  */
-function previewFile(image) {
-
-	var fileData = new FileReader();
-
-	fileData.onload = (function() {
-		//id属性が付与されているimgタグのsrc属性に、fileReaderで取得した値の結果を入力することでプレビュー表示している
-		document.getElementById('preview').src = fileData.result;
+document.addEventListener('DOMContentLoaded', function () {
+	//Modalの呼び出し
+	var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
+	//クリックイベント追加
+	document.querySelectorAll('.modal_target').forEach(function (e) {
+		e.addEventListener('click', function () {
+			document.getElementById('modal_rental_form').action = "/rental/" + this.dataset.book_id;
+			document.getElementById('modal_input_name').textContent = this.querySelector(".modal_book_name").textContent;
+			document.getElementById('modal_input_author').textContent = this.querySelector(".modal_book_author").textContent;
+			document.getElementById('modal_input_publisher').textContent = this.querySelector(".modal_book_publisher").textContent;
+			document.getElementById('preview').src = this.querySelector("img").src;
+			myModal.show();
+		});
 	});
-	
-	fileData.readAsDataURL(image.files[0]);
-	
-}
+});

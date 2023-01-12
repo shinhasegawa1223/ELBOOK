@@ -9,6 +9,7 @@ import com.example.demo.Entity.Rental;
 @Mapper
 public interface RentalMapper {
 
+
 	void rentalBook(int rental_key_id, int book_id);
 
 	void returnBook(int rental_key_id, int book_id);

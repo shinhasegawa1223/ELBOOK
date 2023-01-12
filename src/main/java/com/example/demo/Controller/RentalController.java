@@ -21,6 +21,7 @@ public class RentalController {
 
 	@GetMapping("/rentalview")
 
+
 	public String moveRentalView(
 			@AuthenticationPrincipal CustomDetails user_info,
 			Model model) {
@@ -31,6 +32,7 @@ public class RentalController {
 	}
 
 	@PostMapping("/{book_id}")
+
 	public String rentalBook(
 			@AuthenticationPrincipal CustomDetails user_info,
 			@PathVariable int book_id) {
@@ -43,6 +45,7 @@ public class RentalController {
 
 	@GetMapping("/return/{book_id}")
 	public String returnBook(
+
 			@AuthenticationPrincipal CustomDetails user_info,
 			@PathVariable int book_id) {
 
@@ -52,4 +55,5 @@ public class RentalController {
 
 		return "redirect:/rental/rentalview";
 	}
+
 }

@@ -8,6 +8,7 @@
 	</resultMap>
 
 	<insert id="rentalBook" parameterType="com.example.demo.Entity.Rental">
+
 		INSERT	INTO EL_RENT(user_id, book_id, rent_day)
 		VALUES	(#{rental_key_id}, #{book_id}, now());
 	</insert>
@@ -21,14 +22,15 @@
 		ON 		EL_RENT.book_id = EL_BOOK.book_id
 		WHERE 	EL_RENT.user_id  = #{rental_key_id}
 		AND 	dlt_flg = 0 ;
+
 		
 	</select>
 
-	<update id="returnBook" parameterType="com.example.demo.Entity.Rental">
 		UPDATE	EL_RENT
 		SET		dlt_flg = 1
 		WHERE	user_id  = #{rental_key_id}
 		AND		book_id = #{book_id};
+
 	</update>
 
 </mapper>
