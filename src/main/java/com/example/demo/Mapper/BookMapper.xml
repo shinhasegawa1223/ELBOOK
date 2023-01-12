@@ -10,6 +10,7 @@
 	<select id="findBook" resultMap="Base_Result_Map">
 		SELECT book_id, book_name, book_author,  book_publisher, create_time, update_time, file_name, stock
 		FROM EL_BOOK
+		ORDER BY book_id DESC;
 	</select>
 
 	<!-- stock file_name　追記処理必要-->

@@ -16,8 +16,9 @@
 
 <body>
 	<header th:replace="header :: header"></header>
-	<button id="onModal" type="button" class="btn btn-primary">Launch
-		demo modal</button>
+	
+	<!-- <button id="onModal" type="button" class="btn btn-primary">Launch
+		demo modal</button> -->
 
 	<!-- booklist -->
 	<div class="container">
@@ -26,13 +27,14 @@
 			<div th:each="book: ${BookList}" class="col-3 my-3 modal_target"
 				th:data-book_id="${book.book_id}">
 				<div class="card">
+				<!-- 
 					<a th:href="@{/book/details/{book_id}(book_id=*{book.book_id})}"
-						class="text-decoration-none"> <img
-						class="card-img-top bg-light" width="100%" height="250"
+						class="text-decoration-none"> -->
+						<img	class="card-img-top bg-light" width="100%" height="250"
 						th:src="@{'/images/calligraphy/' + ${book.file_name}}"
 						src="https://placehold.jp/150x150.png"
 						style="object-fit: contain;">
-					</a>
+					<!-- </a>-->
 					<div class="card-body">
 						<h4 th:text="${book.book_name}"
 							class="card-title text-dark modal_book_name">タイトル</h4>
