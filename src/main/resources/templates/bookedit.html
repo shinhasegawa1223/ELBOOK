@@ -42,11 +42,20 @@
 						<input th:placeholder="${book.book_releasetime}" type="text" name="book_releasetime"
 							th:value="${book.book_releasetime}" id="text1" class="form-control ">
 					</div>
+
+
+					<div class="mb-2">
+						<label class="form-label" for="stock">Stock</label>
+						<input class="form-control" type="text" name="stock" placeholder="0" id="stock">
+					</div>
+
+
 					<div class="mb-2">
 						<label class="form-label" for="releasetime">Calligraphy</label>
 						<input class="form-control" type="file" name="file" onchange="previewFile(this);"
 							accept="image/jpeg" required>
 					</div>
+
 
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
