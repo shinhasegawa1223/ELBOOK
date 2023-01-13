@@ -12,4 +12,4 @@
 | 3    |book_id         |  int       | ●       |        |                          |
 | 4    |rent_day        | timestamp |  ●       |        |                          |
 | 5    |return_day      |  timestamp  | ●      |        |                          |
-| 6    |dlt_flg          | bollean | ●       |  0       |      rent,return,          |
+| 6    |dlt_flg          | bollean | ●       |  0       |      0：貸し出し中1：返却済み          |

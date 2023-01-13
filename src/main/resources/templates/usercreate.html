@@ -11,22 +11,22 @@
 </head>
 
 <body>
-	
+
 	<header th:replace="header :: header"></header>
 	<br>
 	<h2 class="container">User_Create</h2>
 	<form th:action="@{/user/usercreate}" th:object="${createUser}" class="container" method="post">
 		<div class="mb-2">
 			<label class="form-label" for="name">Name</label> <input class="form-control" type="text" name="user_name"
-			 placeholder="test_user" id="name">
+				placeholder="test_user" id="name">
 		</div>
 		<div class="mb-2">
 			<label class="form-label" for="address">Address</label> <input class="form-control" type="text" name="mail"
-			placeholder="test@com" id="address">
+				placeholder="test@com" id="address">
 		</div>
 		<div class="mb-2">
 			<label class="form-label" for="password">Password</label> <input class="form-control" type="password"
-			name="pass" id="password">
+				name="pass" id="password">
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>

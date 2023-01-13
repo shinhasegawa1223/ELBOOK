@@ -22,11 +22,12 @@ public class BookList {
 	private Date create_time;
 
 	private Date update_time;
-	
+
 	//ファイルアップロードのため必要
 	private MultipartFile file;
-	
+
 	private String file_name;
+
 	private int stock;
 
 }

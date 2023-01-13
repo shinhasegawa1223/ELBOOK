@@ -41,7 +41,7 @@ public class ELBOOKUserTest {
 	}
 
 	@Test
-	@Disabled
+	//@Disabled
 	//ユーザー追加処理
 	void createUserAdmin() {
 		String name = "iijima";

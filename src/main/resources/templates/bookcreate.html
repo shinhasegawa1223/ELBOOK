@@ -20,6 +20,7 @@
 				<h2>Book_Create</h2>
 				<form th:action="@{/book/bookcreate}" th:object="${createBook}" method="post"
 					enctype="multipart/form-data">
+
 					<div class="mb-2">
 						<label class="form-label" for="name">Name</label>
 						<input class="form-control" type="text" name="book_name" placeholder="キングダム(66)" id="name">
@@ -36,6 +37,10 @@
 						<label class="form-label" for="releasetime">ReleaseDate</label>
 						<input class="form-control" type="text" name="book_releasetime" placeholder="YYYY-MM-DD"
 							id="releasetime">
+					</div>
+					<div class="mb-2">
+						<label class="form-label" for="stock">Stock</label>
+						<input class="form-control" type="text" name="stock" placeholder="0" id="stock">
 					</div>
 					<div class="mb-2">
 						<label class="form-label" for="releasetime">Calligraphy</label>

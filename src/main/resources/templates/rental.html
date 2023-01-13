@@ -24,7 +24,8 @@
 			<tr th:each="rentalbook: ${RentalBooks}">
 				<td th:text="${rentalbook.book_name}"></td>
 				<td th:text="${rentalbook.rent_day}"></td>
-				<td><a th:href="@{/rental/return/{book_id}(book_id=*{rentalbook.book_id})}" class="btn btn-primary">Return</a>
+				<td><a th:href="@{/rental/return/{book_id}(book_id=*{rentalbook.book_id})}"
+						class="btn btn-primary">Return</a>
 				</td>
 			</tr>
 		</tbody>

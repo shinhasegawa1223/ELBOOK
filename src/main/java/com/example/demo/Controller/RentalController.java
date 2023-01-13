@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.Service.BookService;
 import com.example.demo.Service.RentalService;
 import com.example.demo.Service.auth.CustomDetails;
 
@@ -18,9 +19,10 @@ public class RentalController {
 
 	@Autowired
 	RentalService rentalService;
+	@Autowired
+	BookService bookService;
 
 	@GetMapping("/rentalview")
-
 
 	public String moveRentalView(
 			@AuthenticationPrincipal CustomDetails user_info,
@@ -40,6 +42,15 @@ public class RentalController {
 		int rental_key_id = user_info.getUserList().getUser_id();
 
 		rentalService.rentalBook(rental_key_id, book_id);
+		System.out.println("-----------------------------------------------");
+		System.out.println("-----------------------------------------------");
+		System.out.println("-----------------------------------------------");
+		System.out.println("-----------------------------------------------");
+		System.out.println("-----------------------------------------------");
+		System.out.println(book_id);
+		System.out.println("-----------------------------------------------");
+		System.out.println("-----------------------------------------------");
+		bookService.rentalBook(book_id);
 		return "redirect:/book/list";
 	}
 
@@ -52,7 +63,7 @@ public class RentalController {
 		int rental_key_id = user_info.getUserList().getUser_id();
 
 		rentalService.returnBook(rental_key_id, book_id);
-
+		bookService.returnBook(book_id);
 		return "redirect:/rental/rentalview";
 	}
 
