@@ -37,14 +37,14 @@ public class BookService {
 	public int getMaxNumberBook() {
 		return bookMapper.getMaxNumberBook();
 	}
-	
-	public void rentalBook(int book_id){
+
+	public void rentalBook(int book_id) {
 		bookMapper.rentalBook(book_id);
-		
+
 	}
 
-	public void returnBook(int book_id){
+	public void returnBook(int book_id) {
 		bookMapper.returnBook(book_id);
 	}
-	
+
 }

@@ -30,8 +30,7 @@ public class BookController {
 
 	@Autowired
 	private AppConfig appConfig;
-	
-	
+
 	@GetMapping("/bookinfo")
 	public String bookInfo(Model model) {
 		model.addAttribute("BookList", bookService.findBook());
@@ -51,8 +50,6 @@ public class BookController {
 		model.addAttribute("TargetBook", bookService.targetBook(book_id));
 		return "bookedit";
 	}
-
-
 
 	@GetMapping("/createview")
 	public String moveCreateView(Model model) {
@@ -98,8 +95,6 @@ public class BookController {
 		bookService.editBook(bookList);
 		return "redirect:/book/list";
 	}
-
-
 
 	@GetMapping("/bookdelete/{book_id}")
 	public String deleteBook(@PathVariable int book_id) {

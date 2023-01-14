@@ -12,11 +12,15 @@ public interface UserMapper {
 	List<UserList> findUser();
 
 	UserList targetUser(int user_id);
+	
+	UserList emailFindUser(String mail);
 
 	void createUser(UserList userList);
 
 	void editUser(UserList userList);
 
 	void deleteUser(int user_id);
-
+	
+	void emailDeleteUesr(String mail);
+	
 }
