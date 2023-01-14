@@ -5,7 +5,7 @@
 	<resultMap id="Base_Result_Map" type="com.example.demo.Entity.BookList">
 		<id column="book_id" property="book_id" jdbcType="INTEGER" />
 	</resultMap>
-
+	
 	<!-- stock file_name　追記処理必要 -->
 	<select id="findBook" resultMap="Base_Result_Map">
 		SELECT 
@@ -16,6 +16,30 @@
 			EL_BOOK
 		ORDER BY 
 			book_id DESC;
+	</select>
+
+	<!-- stock file_name　追記処理必要 -->
+	<select id="getBookList" resultMap="Base_Result_Map">
+		SELECT
+			t1.book_id,
+			t1.book_name,
+			t1.book_author,
+			t1.book_publisher,
+			t1.book_releasetime,
+			t1.create_time,
+			t1.update_time,
+			t1.file_name,
+			t1.stock
+		FROM
+			EL_BOOK as t1
+			left outer join EL_RENT as t2
+				on t1.book_id = t2.book_id
+					and t2.user_id = #{rental_key_id}
+					and t2.dlt_flg = 0
+		WHERE
+			t2.rent_id is null
+		ORDER BY
+			t1.book_id DESC;
 	</select>
 
 	<!-- stock file_name　追記処理必要-->

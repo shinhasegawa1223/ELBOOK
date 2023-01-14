@@ -8,8 +8,10 @@ import com.example.demo.Entity.BookList;
 
 @Mapper
 public interface BookMapper {
-
+	
 	List<BookList> findBook();
+
+	List<BookList> getBookList(int rental_key_id);
 
 	BookList targetBook(int book_id);
 

@@ -37,10 +37,13 @@ public class BookController {
 		return "bookinfo";
 	}
 
-	//アクセス時にユーザーを一覧で取得
+	//アクセス時に本を一覧で取得
 	@GetMapping("/list")
-	public String findBook(@AuthenticationPrincipal CustomDetails user_role, Model model) {
-		model.addAttribute("BookList", bookService.findBook());
+	public String getBookList(@AuthenticationPrincipal CustomDetails user_info, Model model) {
+		
+		int rental_key_id = user_info.getUserList().getUser_id();
+		
+		model.addAttribute("BookList", bookService.getBookList(rental_key_id));
 		//System.out.println(user_role);
 		return "booklist";
 	}
