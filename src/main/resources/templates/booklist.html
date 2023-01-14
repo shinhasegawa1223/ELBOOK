@@ -31,11 +31,11 @@
 					<div class="card-body">
 						<h4 th:text="${book.book_name}" class="card-title text-dark modal_book_name">タイトル</h4>
 						<h6 th:text="${book.book_author}" class="card-subtitle text-dark modal_book_author">著者</h6>
-						<p th:text="${book.book_publisher}" class="card-text text-dark modal_book_publisher">出版社</p>
+						<div th:text="${book.book_publisher}" class="card-text text-dark modal_book_publisher">出版社</div>
 
 						<!-- 在庫数 -->
 
-						<p th:text="${book.stock}"class="card-text text-dark modal_stock">在庫数</p>
+						<div th:text="${book.stock}"class="card-text text-dark modal_stock">在庫数</div>
 						<!-- 在庫数 -->
 					</div>
 				</div>

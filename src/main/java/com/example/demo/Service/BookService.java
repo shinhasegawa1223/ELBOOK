@@ -17,6 +17,10 @@ public class BookService {
 	public List<BookList> findBook() {
 		return bookMapper.findBook();
 	}
+	
+	public List<BookList> getBookList(int rental_key_id) {
+		return bookMapper.getBookList(rental_key_id);
+	}
 
 	public BookList targetBook(int book_id) {
 		return bookMapper.targetBook(book_id);
