@@ -49,7 +49,7 @@
 		UPDATE 
 			EL_USER
 		SET 
-			user_name =#{user_name}, mail=#{mail}, pass=#{pass}, authority=#{authority}
+			user_name =#{user_name}, mail=#{mail}, authority=#{authority}
 		WHERE
 			user_id =#{user_id};
 	</update>

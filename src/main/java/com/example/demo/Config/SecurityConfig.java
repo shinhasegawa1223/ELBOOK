@@ -27,14 +27,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-				.authorizeRequests()
-				.mvcMatchers("/login/**").permitAll()
+				.authorizeRequests().mvcMatchers("/login/**").permitAll()
 				.and()
-				.authorizeRequests().mvcMatchers("/user/**").hasAuthority("ADMIN")
-				.anyRequest().authenticated()
+				.authorizeRequests().mvcMatchers("/user/**").hasAuthority("ADMIN").anyRequest().authenticated()
 				.and()
-				.formLogin()
-				.loginPage("/login");
+				.formLogin().loginPage("/login")
+				.and()
+				.formLogin().defaultSuccessUrl("/book/list");
 
 		http.exceptionHandling().accessDeniedPage("/error");
 

@@ -39,8 +39,8 @@ public class UserService {
 	}
 
 	public void editUser(UserList userList) {
-		String encodedpass = passwordEncoder.encode(userList.getPass());
-		userList.setPass(encodedpass);
+//		String encodedpass = passwordEncoder.encode(userList.getPass());
+//		userList.setPass(encodedpass);
 		userMapper.editUser(userList);
 	}
 
