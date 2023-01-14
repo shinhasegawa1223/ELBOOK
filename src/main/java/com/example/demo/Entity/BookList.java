@@ -1,6 +1,6 @@
 package com.example.demo.Entity;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,9 +19,9 @@ public class BookList {
 
 	private String book_releasetime;
 
-	private Date create_time;
+	private LocalDateTime create_time;
 
-	private Date update_time;
+	private LocalDateTime update_time;
 
 	//ファイルアップロードのため必要
 	private MultipartFile file;

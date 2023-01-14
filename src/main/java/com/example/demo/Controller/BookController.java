@@ -30,7 +30,7 @@ public class BookController {
 
 	@Autowired
 	private AppConfig appConfig;
-
+	
 	@GetMapping("/bookinfo")
 	public String bookInfo(Model model) {
 		model.addAttribute("BookList", bookService.findBook());
@@ -50,7 +50,9 @@ public class BookController {
 
 	@GetMapping("/editview/{book_id}")
 	public String moveEditView(@PathVariable int book_id, Model model) {
+
 		model.addAttribute("TargetBook", bookService.targetBook(book_id));
+		
 		return "bookedit";
 	}
 
@@ -78,10 +80,16 @@ public class BookController {
 			model.addAttribute("error", "ファイルを指定してください");
 			return "imagetest";
 		}
-		File dest = new File(appConfig.getImageDir(), tmp_file_name);
+		saveFile(bookList,tmp_file_name);
+		
+		return "redirect:/book/list";
+	}
+	//ファイル保存関数
+	private void saveFile(BookList book,String file_name) {
+		File dest = new File(appConfig.getImageDir(), file_name);
 		System.out.println(dest);
 		try {
-			bookList.getFile().transferTo(dest); //表示される修正候補の「try/catchで囲む」を選択
+			book.getFile().transferTo(dest); //表示される修正候補の「try/catchで囲む」を選択
 		} catch (IllegalStateException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
@@ -89,13 +97,22 @@ public class BookController {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		return "redirect:/book/list";
 	}
 
 	@PostMapping("/bookedit")
-	public String editBook(@ModelAttribute("editBook") BookList bookList) {
+	public String editBook(@ModelAttribute("editBook") BookList bookList,Model model) {
 		System.out.println(bookList);
 		bookService.editBook(bookList);
+		
+		//ファイルの保存処理
+		if (bookList.getFile().isEmpty()) {
+//			model.addAttribute("error", "ファイルを指定してください");
+
+			return "redirect:/book/list";
+		}
+
+		saveFile(bookList,bookList.getFile_name());
+		
 		return "redirect:/book/list";
 	}
 
