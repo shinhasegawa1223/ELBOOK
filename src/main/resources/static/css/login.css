@@ -12,6 +12,7 @@ body{
 }
 
 .body{
+	   
   margin: 0;
   padding: 0;
   position: absolute;
@@ -25,9 +26,11 @@ body{
   background-size: cover;
   -webkit-filter: blur(1.9px);
   z-index: 0;
+  filter: grayscale(60%);
 }
 
 .grad{
+	
   position: absolute;
    top: 0px;
   left:0px;
@@ -79,6 +82,7 @@ body{
   font-family: 'Exo', sans-serif;
   font-size: 16px;
   font-weight: 400;
+  
   padding: 4px;
 }
 
@@ -94,6 +98,7 @@ body{
   font-weight: 400;
   padding: 4px;
   margin-top: 10px;
+  
 }
 
 .login input[type=submit]{
@@ -109,6 +114,7 @@ body{
   font-weight: 400;
   padding: 6px;
   margin-top: 10px;
+  
 }
 
 .login input[type=submit]:hover{
