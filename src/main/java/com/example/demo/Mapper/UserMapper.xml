@@ -26,6 +26,18 @@
 			user_id =#{user_id};
 	</select>
 
+
+	<select id="emailFindUser" resultMap="Base_Result_Map" parameterType="com.example.demo.Entity.UserList">
+		SELECT 
+			user_id, user_name, mail, 
+			pass, create_time, delete_flg,authority
+		FROM 
+			EL_USER
+		WHERE
+			mail=#{mail};
+	</select>
+
+
 	<insert id="createUser" parameterType="com.example.demo.Entity.UserList">
 		INSERT INTO 
 			EL_USER(user_name, mail, pass, create_time, authority)
@@ -50,5 +62,10 @@
 		WHERE
 			user_id =#{user_id};
 	</update>
+
+	<delete id="emailDeleteUesr" parameterType="com.example.demo.Entity.UserList">
+		DELETE FROM EL_USER WHERE mail=#{mail};
+	</delete>
+
 
 </mapper>

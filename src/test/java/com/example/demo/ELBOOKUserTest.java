@@ -20,7 +20,6 @@ public class ELBOOKUserTest {
 	private UserService userService;
 
 	//@Disabledをつけることでテストスキップが行える
-
 	@Test
 	@Disabled
 	//全件取得処理のテストコード
@@ -37,14 +36,15 @@ public class ELBOOKUserTest {
 	void targetUser() {
 		//int select_num = 7;
 		//UserList userList = userService.targetUser(select_num);
-
 	}
 
 	@Test
 	//@Disabled
-	//ユーザー追加処理
+	//ユーザー追加処理ADMIN権限を付与して作成
 	void createUserAdmin() {
-		String name = "iijima";
+
+		//DBへテストデータを登録する
+		String name = "kotouge";
 		UserList userList = new UserList();
 		userList.setUser_name(name);
 		userList.setMail(name + "@com");
@@ -52,13 +52,25 @@ public class ELBOOKUserTest {
 		userList.setAuthority(Authority.ADMIN);
 		userService.createUser(userList);
 
+		//DBへ再度問い合わせを行い登録したデータの整合性をテスト
+		UserList resultList = userService.emailFindUser(name + "@com");
+		assertEquals(name, resultList.getUser_name());
+		assertEquals(name + "@com", resultList.getMail());
+		assertEquals(Authority.ADMIN, resultList.getAuthority());
+
+		//登録したテストデータの削除
+		userService.emailDeleteUesr(name + "@com");
+
 	}
 
 	@Test
 	//@Disabled
 	//ユーザー追加処理
+	//ユーザー追加処理ADMIN権限を付与して作成
 	void createUserUser() {
-		String name = "niimura";
+
+		//DBへテストデータを登録する
+		String name = "satou";
 		UserList userList = new UserList();
 		userList.setUser_name(name);
 		userList.setMail(name + "@com");
@@ -66,6 +78,14 @@ public class ELBOOKUserTest {
 		userList.setAuthority(Authority.USER);
 		userService.createUser(userList);
 
+		//DBへ再度問い合わせを行い登録したデータの整合性をテスト
+		UserList resultList = userService.emailFindUser(name + "@com");
+		assertEquals(name, resultList.getUser_name());
+		assertEquals(name + "@com", resultList.getMail());
+		assertEquals(Authority.USER, resultList.getAuthority());
+
+		//登録したテストデータの削除
+		userService.emailDeleteUesr(name + "@com");
 	}
 
 	@Test
@@ -77,7 +97,6 @@ public class ELBOOKUserTest {
 		userList.setMail("kamikita@com");
 		userList.setPass("password");
 		userService.editUser(userList);
-
 		assertEquals("kamikita", userList.getUser_name());
 		assertEquals("kamikita@com", userList.getMail());
 	}
@@ -89,12 +108,8 @@ public class ELBOOKUserTest {
 
 	//Todo target user検索においてデリートフラグも取得できるようにする
 	void deleteUser() {
-
 		//引数を変えてください
 		userService.deleteUser(14);
-
-		//UserList userList = userService.targetUser(14);
-
 	}
 
 }
