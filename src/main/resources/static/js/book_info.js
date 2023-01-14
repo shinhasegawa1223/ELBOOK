@@ -15,6 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
 			document.getElementById('modal_input_stock').textContent = this.querySelector(".modal_stock").textContent;
 
 			document.getElementById('preview').src = this.querySelector("img").src;
+
+			if(this.querySelector(".modal_stock").textContent > 0){
+				document.getElementById('modal_button').removeAttribute("disabled");
+			}else{
+				console.log(document.getElementById('modal_button'))
+				document.getElementById('modal_button').setAttribute("disabled",true);
+			}
+
 			myModal.show();
 		});
 	});
