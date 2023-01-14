@@ -42,14 +42,6 @@ public class RentalController {
 		int rental_key_id = user_info.getUserList().getUser_id();
 
 		rentalService.rentalBook(rental_key_id, book_id);
-		System.out.println("-----------------------------------------------");
-		System.out.println("-----------------------------------------------");
-		System.out.println("-----------------------------------------------");
-		System.out.println("-----------------------------------------------");
-		System.out.println("-----------------------------------------------");
-		System.out.println(book_id);
-		System.out.println("-----------------------------------------------");
-		System.out.println("-----------------------------------------------");
 		bookService.rentalBook(book_id);
 		return "redirect:/book/list";
 	}

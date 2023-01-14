@@ -39,28 +39,43 @@ public class ELBOOKUserTest {
 	}
 
 	@Test
-	//@Disabled
+	@Disabled
 	//ユーザー追加処理ADMIN権限を付与して作成
 	void createUserAdmin() {
-
+		System.out.println("テスト開始");
 		//DBへテストデータを登録する
-		String name = "kotouge";
+		String name = "takemiya";
 		UserList userList = new UserList();
 		userList.setUser_name(name);
 		userList.setMail(name + "@com");
 		userList.setPass("password");
 		userList.setAuthority(Authority.ADMIN);
+
+		System.out.println("----ユーザー登録処理開始----");
+		System.out.println("ユーザー名：" + userList.getUser_name());
+		System.out.println("メールアドレス：" + userList.getMail());
+		System.out.println("権限：" + userList.getAuthority());
 		userService.createUser(userList);
+		System.out.println("----ユーザー登録処理終了----");
 
 		//DBへ再度問い合わせを行い登録したデータの整合性をテスト
+
+		System.out.println("----ユーザー登録処理情報取得開始----");
 		UserList resultList = userService.emailFindUser(name + "@com");
+		System.out.println("ユーザー名：" + resultList.getUser_name());
+		System.out.println("メールアドレス：" + resultList.getMail());
+		System.out.println("権限：" + resultList.getAuthority());
 		assertEquals(name, resultList.getUser_name());
 		assertEquals(name + "@com", resultList.getMail());
 		assertEquals(Authority.ADMIN, resultList.getAuthority());
+		System.out.println("----ユーザー登録処理情報取得終了----");
 
 		//登録したテストデータの削除
+		System.out.println("----ユーザー登録情報削除開始----");
 		userService.emailDeleteUesr(name + "@com");
+		System.out.println("----ユーザー登録情報削除終了----");
 
+		System.out.println("テスト正常終了");
 	}
 
 	@Test
@@ -68,24 +83,40 @@ public class ELBOOKUserTest {
 	//ユーザー追加処理
 	//ユーザー追加処理ADMIN権限を付与して作成
 	void createUserUser() {
-
+		System.out.println("テスト開始");
 		//DBへテストデータを登録する
-		String name = "satou";
+		String name = "ninomiya";
 		UserList userList = new UserList();
 		userList.setUser_name(name);
 		userList.setMail(name + "@com");
 		userList.setPass("password");
 		userList.setAuthority(Authority.USER);
+
+		System.out.println("----ユーザー登録処理開始----");
+		System.out.println("ユーザー名：" + userList.getUser_name());
+		System.out.println("メールアドレス：" + userList.getMail());
+		System.out.println("権限：" + userList.getAuthority());
 		userService.createUser(userList);
+		System.out.println("----ユーザー登録処理終了----");
 
 		//DBへ再度問い合わせを行い登録したデータの整合性をテスト
+		System.out.println("----ユーザー登録処理情報取得開始----");
 		UserList resultList = userService.emailFindUser(name + "@com");
+
+		System.out.println("ユーザー名：" + resultList.getUser_name());
+		System.out.println("メールアドレス：" + resultList.getMail());
+		System.out.println("権限：" + resultList.getAuthority());
+
 		assertEquals(name, resultList.getUser_name());
 		assertEquals(name + "@com", resultList.getMail());
 		assertEquals(Authority.USER, resultList.getAuthority());
 
 		//登録したテストデータの削除
+		System.out.println("----ユーザー登録情報削除開始----");
 		userService.emailDeleteUesr(name + "@com");
+		System.out.println("----ユーザー登録情報削除終了----");
+
+		System.out.println("テスト正常終了");
 	}
 
 	@Test

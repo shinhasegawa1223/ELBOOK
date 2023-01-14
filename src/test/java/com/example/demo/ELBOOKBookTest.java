@@ -83,7 +83,7 @@ public class ELBOOKBookTest {
 		bookService.rentalBook(book_id);
 		BookList rentald_lists = bookService.targetBook(book_id);
 		System.out.println("貸し出し処理在庫数" + rentald_lists.getStock());
-		
+
 		System.out.println(lists.getStock() - 1);
 
 		assertEquals(lists.getStock() - 1, rentald_lists.getStock());
