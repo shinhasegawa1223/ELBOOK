@@ -34,6 +34,13 @@ public class UserController {
 	public String moveCreateView() {
 		return "usercreate";
 	}
+	
+	@PostMapping("/signupuser")
+	public String signUpUser(@ModelAttribute("createUser") UserList userList) {
+		//System.out.println(userList);
+		userService.createUser(userList);
+		return "redirect:/";
+	}
 
 	@PostMapping("/usercreate")
 	public String createUser(@ModelAttribute("createUser") UserList userList) {

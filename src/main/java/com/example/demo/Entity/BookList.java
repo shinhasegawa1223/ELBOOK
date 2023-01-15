@@ -1,5 +1,6 @@
 package com.example.demo.Entity;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -19,7 +20,7 @@ public class BookList {
 
 	private String book_releasetime;
 
-	private LocalDateTime create_time;
+	private Date create_time;
 
 	private LocalDateTime update_time;
 

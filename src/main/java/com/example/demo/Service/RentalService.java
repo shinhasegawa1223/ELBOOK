@@ -27,4 +27,8 @@ public class RentalService {
 		return rentalMapper.findRentalBook(rental_key_id);
 	}
 
+	public List<Rental> findALLRentalBook() {
+		return rentalMapper.findALLRentalBook();
+	}
+
 }
