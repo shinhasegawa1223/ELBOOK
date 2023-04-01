@@ -146,7 +146,18 @@ body{
 ::-moz-input-placeholder{
    color: rgba(255,255,255,0.6);
 }
-
+.login div{
+  width: 260px;
+  height: 35px;
+  cursor: pointer;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+.login div a{
+	color: blue;
+}
 
 
 

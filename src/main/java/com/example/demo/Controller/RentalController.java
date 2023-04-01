@@ -23,7 +23,6 @@ public class RentalController {
 	BookService bookService;
 
 	@GetMapping("/rentalview")
-
 	public String moveRentalView(
 			@AuthenticationPrincipal CustomDetails user_info,
 			Model model) {
@@ -32,9 +31,14 @@ public class RentalController {
 		model.addAttribute("RentalBooks", rentalService.findRentalBook(rental_key_id));
 		return "rental";
 	}
+	
+	@GetMapping("/list")
+	public String showRentalList(Model model) {
+		model.addAttribute("RentalBooks", rentalService.findALLRentalBook());
+		return "rentallist";
+	}
 
 	@PostMapping("/{book_id}")
-
 	public String rentalBook(
 			@AuthenticationPrincipal CustomDetails user_info,
 			@PathVariable int book_id) {

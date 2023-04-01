@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.Entity.UserList;
+import com.example.demo.Entity.UserList.Authority;
 import com.example.demo.Service.UserService;
 
 @Controller
@@ -33,6 +34,13 @@ public class UserController {
 	@GetMapping("/createview")
 	public String moveCreateView() {
 		return "usercreate";
+	}
+	
+	@PostMapping("/signupuser")
+	public String signUpUser(@ModelAttribute("createUser") UserList userList) {
+		userList.setAuthority(Authority.USER);
+		userService.createUser(userList);
+		return "redirect:/";
 	}
 
 	@PostMapping("/usercreate")

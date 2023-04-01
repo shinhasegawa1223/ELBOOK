@@ -41,6 +41,9 @@
 								th:href="@{/rental/rentalview}">Rental_List</a>
 						</li>
 						<li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
+							<a class="nav-link" th:href="@{/rental/list}">Rental_ListALL</a>
+						</li>
+						<li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
 							<a class="nav-link" th:href="@{/user/createview}">User_Create</a>
 						</li>
 						<li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
