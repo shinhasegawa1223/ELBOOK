@@ -13,7 +13,7 @@ public class ApplicationConfig {
 	public AppConfig appConfig() {
 
 		// 起動時のディレクトリをAppConfigのimageDirフィールドに保持しておく
-		File imageDir = new File("src/main/resources/static/images/calligraphy");
+		File imageDir = new File("calligraphy");
 		imageDir = imageDir.getAbsoluteFile();
 
 		// imagesフォルダがなかったら作成する
