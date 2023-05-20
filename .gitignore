@@ -39,3 +39,4 @@ application.properties
 /calligraphy/*
 /bin/
 application.*
+application-*.*
