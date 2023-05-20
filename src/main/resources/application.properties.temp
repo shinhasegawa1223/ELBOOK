@@ -1,0 +1,2 @@
+server.port=8043
+spring.profiles.active=localhost
