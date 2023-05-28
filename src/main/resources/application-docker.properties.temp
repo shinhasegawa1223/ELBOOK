@@ -1,5 +1,6 @@
 spring.config.activate.on-profile=docker
 spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+#ポート、username,passwordは各自指定
 spring.datasource.url=jdbc:mysql://db:3306/elbook2022
 spring.datasource.username=root
 spring.datasource.password=root
