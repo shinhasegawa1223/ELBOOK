@@ -1,0 +1,4 @@
+#ポートを指定
+server.port=8043
+#spring.config.activate.on-profile=xxxを指定する
+spring.profiles.active=localhost
